@@ -1,10 +1,12 @@
 require 'rubygems'
 require 'test/unit'
-require 'shoulda'
+require 'riot'
+require 'pathname'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'jsdoc-toolkit'
 
-class Test::Unit::TestCase
+at_exit do
+  Riot.report
 end

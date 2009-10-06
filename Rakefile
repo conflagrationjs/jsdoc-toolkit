@@ -7,11 +7,10 @@ begin
     gem.name = "jsdoc-toolkit"
     gem.summary = %Q{TODO: one-line summary of your gem}
     gem.description = %Q{RubyGem packaged version of jsdoc-toolkit with extra rake tasks for automating doc generation}
-    gem.email = "gabriel.gironda@centro.net"
+    gem.email = "gabriel.gironda@gmail.com"
     gem.homepage = "http://github.com/gabrielg/jsdoc-toolkit"
     gem.authors = ["ggironda"]
-    gem.add_development_dependency "thoughtbot-shoulda"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "riot"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

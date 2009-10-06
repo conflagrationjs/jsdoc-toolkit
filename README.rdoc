@@ -1,6 +1,7 @@
 = jsdoc-toolkit
 
-Description goes here.
+Hi. I take no credit for this other than packaging it up as a RubyGem and adding some handy Rake tasks.
+The JsDoc Toolkit homepage is here: http://code.google.com/p/jsdoc-toolkit/
 
 == Note on Patches/Pull Requests
  
