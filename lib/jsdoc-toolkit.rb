@@ -1,3 +1,5 @@
+require 'pathname'
+
 module JsDocToolkit
   JsDocRoot = (Pathname(__FILE__).parent.parent + "src/jsdoc-toolkit/jsdoc-toolkit").expand_path
   JsDocTemplatePath = JsDocRoot + "templates"
