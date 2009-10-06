@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/gabrielg/jsdoc-toolkit"
     gem.authors = ["ggironda"]
     gem.add_development_dependency "riot"
+    gem.files = (gem.files + FileList["src/**/*"]).uniq
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
