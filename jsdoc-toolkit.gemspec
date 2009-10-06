@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "jsdoc-toolkit.gemspec",
      "lib/jsdoc-toolkit.rb",
      "lib/jsdoc-toolkit/doc_task.rb",
      "lib/jsdoc-toolkit/generator.rb",
@@ -37,7 +38,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{RubyGem packaged version of jsdoc-toolkit with extra rake tasks for automating doc generation}
   s.test_files = [
     "test/doc_task_test.rb",
      "test/generator_test.rb",

@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "jsdoc-toolkit"
-    gem.summary = %Q{TODO: one-line summary of your gem}
+    gem.summary = %Q{RubyGem packaged version of jsdoc-toolkit with extra rake tasks for automating doc generation}
     gem.description = %Q{RubyGem packaged version of jsdoc-toolkit with extra rake tasks for automating doc generation}
     gem.email = "gabriel.gironda@gmail.com"
     gem.homepage = "http://github.com/gabrielg/jsdoc-toolkit"
