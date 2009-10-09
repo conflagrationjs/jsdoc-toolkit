@@ -24,7 +24,7 @@ module JsDocToolkit
     end
     
     def merge_defaults_with_src(src_dir)
-      DefaultOptions.values + [src_dir.expand_path.to_s]
+      DefaultOptions.values + [src_dir.to_s]
     end
     
   end # Generator
