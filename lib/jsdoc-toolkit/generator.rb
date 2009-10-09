@@ -3,7 +3,8 @@ require 'pathname'
 
 module JsDocToolkit
   class Generator
-    DefaultOptions = {:recurse => "-r", :all => "-a", :template => %Q[-t=#{JsDocTemplatePath + "jsdoc"}]}
+    DefaultOptions = {:recurse => "-r", :all => "-a", :template => %Q[-t=#{JsDocTemplatePath + "jsdoc"}],
+                      :verbose => "-v", :unique => "-u"}
     
     def build(options)
       raise RuntimeError, "java was not found in your PATH." if `which java 2>/dev/null`.strip.empty?
