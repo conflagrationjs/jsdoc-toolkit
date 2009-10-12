@@ -6,11 +6,14 @@ context "a JsDocToolkit::Generator" do
   context "with valid arguments and generating docs" do
     
     setup do
-      output_dir = Pathname(__FILE__).parent + "output"
+      cur_dir = Dir.pwd
+      Dir.chdir(Pathname(__FILE__).parent)
+      output_dir = Pathname("output").expand_path
       output_dir.rmtree if output_dir.exist?
       output_dir.mkdir
       generator = JsDocToolkit::Generator.new
-      generator.build(:src_dir => Pathname(__FILE__).parent + "input", :doc_dir => output_dir)
+      generator.build(:src_files => [Pathname(__FILE__).parent + "input", Pathname(__FILE__).parent + "other_input"], :doc_dir => output_dir)
+      Dir.chdir(cur_dir)
       output_dir
     end
     
@@ -29,26 +32,22 @@ context "a JsDocToolkit::Generator" do
       begin
         original_path = ENV['PATH']
         ENV['PATH'] = ""
-        topic.build(:src_dir => Pathname("input"), :doc_dir => Pathname("output"))
+        topic.build(:src_files => Pathname("input"), :doc_dir => Pathname("output"))
       ensure
         ENV['PATH'] = original_path
       end
     end.raises(RuntimeError, /java was not found/)
   
-    should "fail if src dir does not exist" do
-      topic.build(:src_dir => Pathname("bzzzzzzzzzzzt"), :doc_dir => Pathname("output"))    
-    end.raises(ArgumentError, /src_dir does not exist/)
-  
     should "fail if doc dir does not exist" do
-      topic.build(:src_dir => Pathname(__FILE__).parent + "input", :doc_dir => Pathname("bzzzzzzzt"))
-    end.raises(ArgumentError, /doc_dir does not exist/)
+      topic.build(:src_files => Pathname(__FILE__).parent + "input", :doc_dir => Pathname("bzzzzzzzt"))
+    end.raises(ArgumentError, /doc_dir was not specified or does not exist/)
   
-    should "fail if src dir is not specified" do
+    should "fail if src files is not specified" do
       topic.build(:doc_dir => Pathname("output"))    
-    end.raises(ArgumentError, /src_dir was not specified/)
+    end.raises(ArgumentError, /src_files was not specified/)
   
     should "fail if doc dir is not specified" do
-      topic.build(:src_dir => Pathname("input"))
+      topic.build(:src_files => Pathname("input"))
     end.raises(ArgumentError, /doc_dir was not specified/)
     
   end # with various modes of build failure
